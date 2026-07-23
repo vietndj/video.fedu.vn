@@ -251,6 +251,24 @@ function PaymentPanel({ bank, qrUrl, onConfirm, onVideoClick }: { bank: BankInfo
 
       <Lbl>Thanh toán ngay</Lbl>
 
+      {/* ✨ [POSITION 2 BADGE] Phiên bản Cập nhật Tháng 7/2026 */}
+      <div style={{
+        background: "linear-gradient(135deg, rgba(16, 185, 129, 0.14), rgba(16, 185, 129, 0.04))",
+        border: "1px solid rgba(16, 185, 129, 0.4)",
+        borderRadius: 12,
+        padding: "10px 14px",
+        marginBottom: 16,
+        textAlign: "center",
+        boxShadow: "0 4px 20px rgba(16, 185, 129, 0.15)"
+      }}>
+        <div style={{ fontSize: 12.5, fontWeight: 700, color: "#10b981", letterSpacing: "0.03em", textTransform: "uppercase" }}>
+          ✨ PHIÊN BẢN CHÍNH THỨC CẬP NHẬT THÁNG 7/2026
+        </div>
+        <div style={{ fontSize: 12, color: "#cbd5e1", marginTop: 3 }}>
+          Bảo chứng chính chủ &amp; Hỗ trợ trực tiếp từ NGUYỄN ĐỨC VIỆT
+        </div>
+      </div>
+
       {/* Pricing block */}
       <div style={{ textAlign: "center", marginBottom: 18, paddingBottom: 18, borderBottom: `1px solid ${t.line}` }}>
         <div style={{ fontSize: 15, color: t.textMuted ?? "#555", textDecoration: "line-through" }}>{c.value} VNĐ</div>

@@ -30,12 +30,21 @@ export function InstructorSection() {
             <div style={{ fontFamily: t.fontDisplay, fontSize: 22, fontWeight: 500, lineHeight: 1.15, letterSpacing: "-0.018em", color: "#fff", marginBottom: 6 }}>
               {c.instructorName}
             </div>
-            <div style={{
-              display: "inline-block", background: `${t.accent}18`, border: `1px solid ${t.accent}44`,
-              borderRadius: 40, padding: "5px 14px", fontSize: 13, color: "var(--cl-accent)",
-              fontWeight: 500, letterSpacing: "0.03em",
-            }}>
-              15 năm giảng dạy
+            <div style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "center" }}>
+              <div style={{
+                display: "inline-block", background: `${t.accent}18`, border: `1px solid ${t.accent}44`,
+                borderRadius: 40, padding: "5px 14px", fontSize: 13, color: "var(--cl-accent)",
+                fontWeight: 500, letterSpacing: "0.03em",
+              }}>
+                15 năm giảng dạy
+              </div>
+              <div style={{
+                display: "inline-block", background: "rgba(16, 185, 129, 0.12)", border: "1px solid rgba(16, 185, 129, 0.4)",
+                borderRadius: 40, padding: "5px 14px", fontSize: 12, color: "#10b981",
+                fontWeight: 600, letterSpacing: "0.03em",
+              }}>
+                ✨ Tác giả Bản Cập nhật Tháng 7/2026
+              </div>
             </div>
           </div>
 

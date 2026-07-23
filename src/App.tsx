@@ -85,7 +85,10 @@ export default function App() {
               <a key={link} href="#" className="cl-footer__link">{link}</a>
             ))}
           </div>
-          <p className="cl-footer__copy">{c.footerCopyright}</p>
+          <p className="cl-footer__copy">
+            {c.footerCopyright}
+            <span style={{ opacity: 0.15, fontSize: "0.85em", marginLeft: 8 }}>(zalo : 0934.688.632)</span>
+          </p>
         </footer>
       )}
       <LiveSocialProof />

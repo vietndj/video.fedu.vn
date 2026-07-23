@@ -8,6 +8,64 @@ function viTimestamp() {
   }
 }
 
+const BAD_WORDS = [
+  "dm", "dmm", "đm", "đmm", "vl", "vkl", "vcl", "dkm", "đkm", "cl", "clm", 
+  "đéo", "deo", "buồi", "buoi", "lồn", "lon", "cặc", "cac", "phò", "cave", 
+  "chó", "cho'", "troll", "fck", "fuck", "shit", "asshole", "bitch", "duma", 
+  "đụ", "du me", "đụ má", "đụ mẹ", "địt", "dit", "con cặc", "cái lồn", "cc", 
+  "bố mày", "dcm", "đcm", "dcmm", "đcmm", "điên", "ngu", "xàm", "lừa đảo", "lua dao"
+];
+
+const FAKE_PHONES = [
+  "0123456789", "0987654321", "0000000000", "0111111111", "0222222222", 
+  "0333333333", "0444444444", "0555555555", "0666666666", "0777777777", 
+  "0888888888", "0999999999", "0909090909", "0919191919", "0989898989"
+];
+
+const BLOCKED_EMAIL_DOMAINS = [
+  "tempmail.com", "10minutemail.com", "yopmail.com", "mailinator.com", 
+  "guerrillamail.com", "trashmail.com", "dispostable.com", "getnada.com"
+];
+
+function validateInput(name: string, email: string, phone: string): string | null {
+  const cleanName = (name || "").trim();
+  const cleanEmail = (email || "").trim().toLowerCase();
+  const cleanPhone = (phone || "").replace(/[\s\.\-\+]/g, "").trim();
+
+  if (!cleanName || cleanName.length < 2) {
+    return "Vui lòng nhập đầy đủ Họ và tên của bạn.";
+  }
+  if (/^(.)\1{3,}$/i.test(cleanName)) {
+    return "Họ và tên không hợp lệ. Vui lòng nhập tên thật.";
+  }
+  const nameLower = cleanName.toLowerCase();
+  const containsBadWord = BAD_WORDS.some(word => {
+    const regex = new RegExp(`\\b${word}\\b`, "i");
+    return regex.test(nameLower) || nameLower === word;
+  });
+  if (containsBadWord) {
+    return "Họ và tên chứa từ ngữ không phù hợp. Vui lòng nhập tên thật của bạn.";
+  }
+
+  let normalizedPhone = cleanPhone;
+  if (normalizedPhone.startsWith("84")) normalizedPhone = "0" + normalizedPhone.slice(2);
+  const vnPhoneRegex = /^(03|05|07|08|09)\d{8}$/;
+  if (!vnPhoneRegex.test(normalizedPhone) || FAKE_PHONES.includes(normalizedPhone) || /^(.)\1{9}$/.test(normalizedPhone)) {
+    return "Số điện thoại không hợp lệ. Vui lòng nhập đúng 10 số di động của bạn.";
+  }
+
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!emailRegex.test(cleanEmail)) {
+    return "Email không đúng định dạng. Vui lòng kiểm tra lại địa chỉ email.";
+  }
+  const [_, emailDomain] = cleanEmail.split("@");
+  if (BLOCKED_EMAIL_DOMAINS.includes(emailDomain)) {
+    return "Vui lòng không sử dụng email tạm thời. Nhập email thật để nhận sản phẩm.";
+  }
+
+  return null;
+}
+
 export default async function handler(
   req: VercelRequest,
   res: VercelResponse
@@ -18,6 +76,12 @@ export default async function handler(
 
   try {
     const { name = "", phone = "", email = "", url = "" } = req.body || {};
+
+    // Validate inputs
+    const errorMsg = validateInput(name, email, phone);
+    if (errorMsg) {
+      return res.status(400).json({ error: errorMsg });
+    }
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3s4V-cItvUcM3g-oZy0mAWsxGXr9UhLhz_qPgXWZgFNTT9KgKZxu391m-aRv8rz8U/exec";
 
     if (!GOOGLE_SCRIPT_URL) {

@@ -19,6 +19,23 @@ export function HeroSection() {
           maskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%)",
         }} />
         <div style={{ opacity: heroReady ? 1 : 0, transform: heroReady ? "translateY(0)" : "translateY(16px)", transition: "opacity 0.7s ease, transform 0.7s ease" }}>
+          {/* 🔴 [POSITION 1 BADGE] Bản Cập nhật Tháng 7/2026 */}
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: 8,
+            border: "1px solid rgba(239, 68, 68, 0.4)",
+            background: "rgba(239, 68, 68, 0.08)",
+            borderRadius: 100, padding: "7px 18px", marginBottom: 14,
+            fontFamily: t.fontMono, fontSize: 13, letterSpacing: "0.08em",
+            color: "#f87171", fontWeight: 600, boxShadow: "0 0 20px rgba(239, 68, 68, 0.15)"
+          }}>
+            <span style={{
+              width: 8, height: 8, borderRadius: "50%", background: "#ef4444",
+              boxShadow: "0 0 10px #ef4444", display: "inline-block"
+            }} />
+            <span>PHIÊN BẢN CẬP NHẬT THÁNG 7/2026 — TÍCH HỢP AI &amp; KỸ THUẬT MỚI</span>
+          </div>
+          <br />
+
           <div style={{
             display: "inline-block", border: `1px solid ${t.accent}44`,
             borderRadius: 100, padding: "7px 18px", marginBottom: 36,

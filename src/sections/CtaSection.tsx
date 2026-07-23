@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useContent } from "../content";
 import { useTheme } from "../theme";
 import { FadeIn, Label, SH, Sec, Countdown, MediaSection } from "../components/ui";
+import { validateForm } from "../utils/validation";
 
 function IconGuarantee({ accent: c }: { accent: string }) {
   return (
@@ -18,15 +19,25 @@ function RegForm() {
   const t = useTheme();
   const c = useContent();
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
 
   const handle = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg("");
+
+    // Validate name, email, phone & profanity
+    const validation = validateForm(form.name, form.email, form.phone);
+    if (!validation.isValid) {
+      setErrorMsg(validation.error || "Vui lòng nhập thông tin hợp lệ.");
+      return;
+    }
+
     setLoading(true);
     
     // Save to localStorage for Checkout page to use
     const currentUrl = window.location.href;
-    const customerData = { name: form.name, email: form.email, phone: form.phone, url: currentUrl };
+    const customerData = { name: form.name.trim(), email: form.email.trim().toLowerCase(), phone: form.phone.trim(), url: currentUrl };
     localStorage.setItem("video_customer", JSON.stringify(customerData));
 
     // Bắn sự kiện Facebook Pixel
@@ -40,7 +51,12 @@ function RegForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(customerData),
       });
-      const data = await res.json() as { rowIndex?: number };
+      const data = await res.json() as { rowIndex?: number; error?: string };
+      if (data.error) {
+        setErrorMsg(data.error);
+        setLoading(false);
+        return;
+      }
       if (data.rowIndex) localStorage.setItem("video_row", data.rowIndex.toString());
     } catch { 
       /* Nếu lỗi mạng thì cứ bỏ qua để khách vẫn qua trang thanh toán được */ 
@@ -78,6 +94,12 @@ function RegForm() {
           />
         </div>
       ))}
+
+      {errorMsg && (
+        <div style={{ background: "#7f1d1d33", border: "1px solid #ef4444", borderRadius: t.btnRadius, padding: "12px 16px", color: "#fca5a5", fontSize: 14, lineHeight: 1.5, textAlign: "center" }}>
+          {errorMsg}
+        </div>
+      )}
       <button
         type="submit"
         disabled={loading}
