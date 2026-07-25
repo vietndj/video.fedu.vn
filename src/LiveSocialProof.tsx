@@ -50,18 +50,18 @@ export default function LiveSocialProof() {
       setTimeLabel(TIME_LABELS[Math.floor(Math.random() * TIME_LABELS.length)]);
       setVisible(true);
 
-      // Hide after 4.5 seconds
+      // Hide after 4 seconds
       nextTimeout = setTimeout(() => {
         setVisible(false);
 
-        // Wait random 20 to 40 seconds before showing next
-        const nextDelay = Math.floor(Math.random() * 20000) + 20000; // 20s to 40s
+        // Wait random 45 to 90 seconds before showing next
+        const nextDelay = Math.floor(Math.random() * 45000) + 45000; // 45s to 90s
         nextTimeout = setTimeout(showNext, nextDelay);
-      }, 4500);
+      }, 4000);
     };
 
-    // Initial delay: 11 seconds (11000ms)
-    const initialTimeout = setTimeout(showNext, 11000);
+    // Initial delay: 25 seconds (25000ms)
+    const initialTimeout = setTimeout(showNext, 25000);
 
     return () => {
       active = false;

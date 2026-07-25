@@ -770,7 +770,7 @@ function CheckoutContent() {
                 "Kho Nhạc Nền \"MasterClass\" Độc Bản (mình tạo bằng AI chuyên dụng nên sử dụng sạch bản quyền nhé)",
                 "Sơ đồ đánh sáng 3 điểm cho phòng nhỏ",
                 "Bộ Prompt AI Kịch Bản & Chia Phân Cảnh (Shot-list)",
-                "Checklist 15 điểm QC trước khi đăng để giữ video sắc nét",
+                "Hướng dẫn edit video tự động bằng AI",
               ]).map((item: string, i: number) => <Ck key={i}>{item}</Ck>)}
             </Card>
 

@@ -124,7 +124,7 @@ export function IconGuarantee({ accent: c }: { accent: string }) {
   );
 }
 
-export const BONUS_ICONS = [IconMap, IconClipboard, IconCheck, IconSpeech, IconPhone];
+export const BONUS_ICONS = [IconMap, IconClipboard, IconCheck, IconSpeech, IconVideo];
 
 export function SkillIcon({ idx, accent: c }: { idx: number; accent: string }) {
   injectIconKf();

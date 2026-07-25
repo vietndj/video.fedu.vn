@@ -120,7 +120,7 @@ export interface PageContent {
   bonusLabel: string;
   bonusHeading: string;
   bonusSub: string;
-  bonusItems: { id: string; title: string; desc: string; audioDemo?: string }[];
+  bonusItems: { id: string; title: string; desc: string; audioDemo?: string; youtubeDemo?: string; gifDemo?: string }[];
 
   blocksMeta: BlocksMeta;
 }
@@ -296,9 +296,9 @@ export const DEFAULT_CONTENT: PageContent = {
   roadmapChaptersHeading: "Hệ thống hóa toàn bộ tư duy làm video của bạn:",
   stages: [
     { n: "[1]", title: "Ảo thuật chuyển cảnh", desc: "Vứt bỏ hiệu ứng app sến súa. Học cách mượn chuyển động của đôi tay (vung tay, lướt đồ vật) để nối cảnh tàng hình, giấu nhẹm vết cắt.", sub: "Thực hành làm được ngay điểm nối tàng hình sau 15 phút" },
-    { n: "[2]", title: "Phép màu ánh sáng", desc: "Xóa sổ không gian tối tăm, phẳng lì. Chỉ với 2 chiếc đèn giá rẻ, bạn tự setup được khung hình có chiều sâu 3D đắt tiền như studio.", sub: "Setup xong trong 10 phút, dùng mãi mãi" },
+    { n: "[2]", title: "Ánh sáng là biểu hiện của uy tín", desc: "Xóa sổ không gian tối tăm, phẳng lì. Chỉ với 2 chiếc đèn giá rẻ, bạn tự setup được khung hình có chiều sâu 3D đắt tiền như studio.", sub: "Setup xong trong 10 phút, dùng mãi mãi" },
     { n: "[3]", title: "Tối ưu nhịp video", desc: "Không còn đặt điện thoại chết một chỗ. Linh hoạt đổi góc quay và nhịp độ mỗi 3 giây để ép khán giả không thể rời mắt.", sub: "Áp dụng ngay vào video tiếp theo, thấy khác biệt liền" },
-    { n: "[4]", title: "Nghệ thuật chữa cháy", desc: "Lỡ miệng nói vấp? Không sao. Nắm bí quyết lồng ghép hình ảnh phụ để che lỗi tinh tế, giúp video trôi chảy từ đầu đến cuối.", sub: "Cứu được mọi đoạn hỏng mà không cần quay lại" }
+    { n: "[4]", title: "Kỹ thuật che lỗi tinh tế", desc: "Lỡ miệng nói vấp? Không sao. Nắm bí quyết lồng ghép hình ảnh phụ để che lỗi tinh tế, giúp video trôi chảy từ đầu đến cuối.", sub: "Cứu được mọi đoạn hỏng mà không cần quay lại" }
   ],
 
   // ── Section 10: Instructor ──
@@ -339,8 +339,10 @@ export const DEFAULT_CONTENT: PageContent = {
     },
     {
       id: "05",
-      title: "Checklist 15 Điểm QC Trước Khi Đăng",
-      desc: "Bộ lọc kỹ thuật (Bitrate, tỷ lệ khung hình, chống rung) để đảm bảo video up lên luôn sắc nét, không bị nền tảng bóp tương tác."
+      title: "Hướng Dẫn Edit Video Tự Động Bằng AI",
+      desc: "Quy trình ứng dụng AI tự động cắt ghép, thêm hiệu ứng, phụ đề và phối nhạc — giúp bạn hoàn thành video chuyên nghiệp nhanh gấp 5 lần mà không cần thao tác thủ công phức tạp.",
+      youtubeDemo: "https://www.youtube.com/embed/CaDZiACYrV8",
+      gifDemo: "/edit-ai-promo.gif"
     }
   ],
 

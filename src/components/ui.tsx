@@ -376,7 +376,19 @@ export function IconPhone({ accent: c }: { accent: string }) {
   );
 }
 
-export const BONUS_ICONS = [IconMap, IconClipboard, IconCheck, IconSpeech, IconPhone];
+export function IconVideo({ accent: c }: { accent: string }) {
+  return (
+    <IcBox>
+      <rect x="4" y="7" width="32" height="22" rx="3" stroke={c} strokeWidth="1.8" fill={`${c}10`}/>
+      <line x1="20" y1="29" x2="20" y2="35" stroke={`${c}88`} strokeWidth="2" strokeLinecap="round"/>
+      <line x1="14" y1="35" x2="26" y2="35" stroke={`${c}88`} strokeWidth="2" strokeLinecap="round"/>
+      <polygon points="16,13 16,25 28,19" fill={c} style={{ filter: `drop-shadow(0 0 5px ${c})` }}/>
+      <circle cx="32" cy="10" r="1.5" fill={`${c}66`}/>
+    </IcBox>
+  );
+}
+
+export const BONUS_ICONS = [IconMap, IconClipboard, IconCheck, IconSpeech, IconVideo];
 
 export function SkillIcon({ idx, accent: c }: { idx: number; accent: string }) {
   injectIconKf();
