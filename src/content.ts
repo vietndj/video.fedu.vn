@@ -339,9 +339,8 @@ export const DEFAULT_CONTENT: PageContent = {
     },
     {
       id: "05",
-      title: "Hướng Dẫn Edit Video Tự Động Bằng AI",
-      desc: "Quy trình ứng dụng AI tự động cắt ghép, thêm hiệu ứng, phụ đề và phối nhạc — giúp bạn hoàn thành video chuyên nghiệp nhanh gấp 5 lần mà không cần thao tác thủ công phức tạp.",
-      youtubeDemo: "https://www.youtube.com/embed/CaDZiACYrV8",
+      title: "Cập Nhật Miễn Phí Kỹ Thuật Edit Video Bằng AI",
+      desc: "Liên tục cập nhật miễn phí các kỹ thuật và quy trình AI mới nhất — giúp bạn tự động hóa cắt ghép, tạo phụ đề và rút ngắn 80% thời gian dựng cho một số loại video phổ biến.",
       gifDemo: "/edit-ai-promo.gif"
     }
   ],

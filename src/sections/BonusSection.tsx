@@ -1,7 +1,7 @@
 import React from "react";
 import { useContent } from "../content";
 import { useTheme } from "../theme";
-import { FadeIn, Label, SH, Sec, BONUS_ICONS, AppYTEmbed } from "../components/ui";
+import { FadeIn, Label, SH, Sec, BONUS_ICONS } from "../components/ui";
 
 export function BonusSection() {
   const c = useContent();
@@ -21,6 +21,62 @@ export function BonusSection() {
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           {((c as any).bonusItems || c.bonuses || []).map((item: any, i: number) => {
             const Icon = BONUS_ICONS[i % BONUS_ICONS.length];
+            const hasSideGif = !!item.gifDemo;
+
+            if (hasSideGif) {
+              return (
+                <div key={i} style={{
+                  background: "var(--cl-card)", border: `1px solid var(--cl-line)`,
+                  borderRadius: t.cardRadius, padding: "28px",
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                  gap: 24, alignItems: "center"
+                }}>
+                  {/* Left Column: Icon + Text */}
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: 20 }}>
+                    <div style={{
+                      width: 52, height: 52, borderRadius: 12,
+                      background: `linear-gradient(135deg, ${t.accent}22, transparent)`,
+                      border: `1px solid ${t.accent}44`,
+                      display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                    }}>
+                      <Icon accent={t.accent} />
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: 12, color: "var(--cl-accent)", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 6 }}>
+                        BONUS {i + 1}
+                      </div>
+                      <h4 style={{ fontFamily: t.fontBody, fontSize: 20, fontWeight: 500, color: "#fff", margin: "0 0 8px 0" }}>
+                        {item.title}
+                      </h4>
+                      <div style={{ fontSize: 15, lineHeight: 1.6, color: "#cbd5e1", margin: 0 }} dangerouslySetInnerHTML={{ __html: item.desc }} />
+                    </div>
+                  </div>
+
+                  {/* Right Column: GIF */}
+                  <div style={{
+                    background: "#000",
+                    border: "1px solid rgba(255, 255, 255, 0.12)",
+                    borderRadius: 12,
+                    overflow: "hidden",
+                    boxShadow: "0 8px 24px rgba(0,0,0,0.4)"
+                  }}>
+                    <img
+                      src={item.gifDemo}
+                      alt={item.title}
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        maxHeight: 210,
+                        objectFit: "cover",
+                        display: "block"
+                      }}
+                    />
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <div key={i} style={{
                 background: "var(--cl-card)", border: `1px solid var(--cl-line)`,
@@ -46,92 +102,6 @@ export function BonusSection() {
                     <div style={{ marginTop: 20, padding: "14px 16px", background: "rgba(255,255,255,0.04)", borderRadius: 12, border: `1px solid rgba(255,255,255,0.08)` }}>
                       <div style={{ fontSize: 13, color: "#a1a1aa", marginBottom: 10, fontWeight: 500, letterSpacing: "0.03em" }}>🎧 NGHE THỬ ÂM THANH MẪU:</div>
                       <audio controls src={item.audioDemo} style={{ width: "100%", height: 38, outline: "none", borderRadius: 8 }} />
-                    </div>
-                  )}
-                  {(item.youtubeDemo || item.gifDemo) && (
-                    <div style={{
-                      marginTop: 24,
-                      display: "grid",
-                      gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-                      gap: 16,
-                      width: "100%"
-                    }}>
-                      {item.youtubeDemo && (
-                        <div style={{
-                          background: "rgba(15, 23, 42, 0.6)",
-                          border: "1px solid rgba(255, 255, 255, 0.1)",
-                          borderRadius: 12,
-                          overflow: "hidden",
-                          display: "flex",
-                          flexDirection: "column"
-                        }}>
-                          <div style={{
-                            padding: "8px 12px",
-                            background: "rgba(255, 255, 255, 0.04)",
-                            borderBottom: "1px solid rgba(255, 255, 255, 0.06)",
-                            fontSize: 11,
-                            fontWeight: 600,
-                            color: "var(--cl-accent)",
-                            fontFamily: "var(--cl-font-mono)",
-                            letterSpacing: "0.08em",
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 6
-                          }}>
-                            🎬 DEMO VIDEO YOUTUBE
-                          </div>
-                          <div style={{ flex: 1, position: "relative", minHeight: 160 }}>
-                            <AppYTEmbed url={item.youtubeDemo} />
-                          </div>
-                        </div>
-                      )}
-
-                      {item.gifDemo && (
-                        <div style={{
-                          background: "rgba(15, 23, 42, 0.6)",
-                          border: "1px solid rgba(255, 255, 255, 0.1)",
-                          borderRadius: 12,
-                          overflow: "hidden",
-                          display: "flex",
-                          flexDirection: "column"
-                        }}>
-                          <div style={{
-                            padding: "8px 12px",
-                            background: "rgba(255, 255, 255, 0.04)",
-                            borderBottom: "1px solid rgba(255, 255, 255, 0.06)",
-                            fontSize: 11,
-                            fontWeight: 600,
-                            color: "var(--cl-accent)",
-                            fontFamily: "var(--cl-font-mono)",
-                            letterSpacing: "0.08em",
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 6
-                          }}>
-                            ⚡ MINH HỌA QUY TRÌNH EDIT AI (GIF)
-                          </div>
-                          <div style={{
-                            flex: 1,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            background: "#000",
-                            overflow: "hidden"
-                          }}>
-                            <img
-                              src={item.gifDemo}
-                              alt={item.title}
-                              style={{
-                                width: "100%",
-                                height: "100%",
-                                minHeight: 160,
-                                objectFit: "cover",
-                                display: "block"
-                              }}
-                            />
-                          </div>
-                        </div>
-                      )}
                     </div>
                   )}
                 </div>
