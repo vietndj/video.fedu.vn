@@ -134,13 +134,13 @@ export function CtaSection() {
   return (
     <section id="dang-ky" style={{ maxWidth: 760, margin: "84px auto 0", padding: "0 20px" }}>
       <FadeIn>
-        <div style={{ background: `linear-gradient(135deg, var(--cl-card), var(--cl-card2))`, border: `1px solid var(--cl-accent)`, borderRadius: 28, overflow: "hidden" }}>
+        <div style={{ background: `linear-gradient(135deg, var(--cl-card), var(--cl-card2))`, border: `1px solid var(--cl-accent)`, borderRadius: "clamp(16px, 4vw, 28px)", overflow: "hidden" }}>
           <div style={{ background: "var(--cl-accent)", padding: "14px 24px", textAlign: "center" }}>
             <p style={{ fontSize: 14, fontWeight: 500, letterSpacing: "0.05em", textTransform: "uppercase", color: "var(--cl-accent-text)" }}>
               {c.urgencyBar.replace("{PRICE}", c.price)}
             </p>
           </div>
-          <div style={{ padding: "48px 40px" }}>
+          <div style={{ padding: "clamp(24px, 6vw, 48px) clamp(16px, 5vw, 40px)" }}>
             <div style={{ textAlign: "center", marginBottom: 36 }}>
               <Label>{c.ctaLabel}</Label>
               <SH typed>{c.ctaHeading}</SH>

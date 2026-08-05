@@ -76,11 +76,11 @@ export default function LiveSocialProof() {
     <div
       style={{
         position: "fixed",
-        bottom: 24,
-        left: 24,
+        bottom: "clamp(12px, 3vw, 24px)",
+        left: "clamp(12px, 3vw, 24px)",
         zIndex: 9999,
-        maxWidth: 340,
-        width: "calc(100% - 48px)",
+        maxWidth: "min(340px, calc(100% - 24px))",
+        width: "auto",
         background: "rgba(18, 22, 33, 0.85)",
         backdropFilter: "blur(16px)",
         border: "1px solid rgba(255, 255, 255, 0.08)",
@@ -126,7 +126,7 @@ export default function LiveSocialProof() {
 
       {/* Message Info */}
       <div style={{ flex: 1, textAlign: "left" }}>
-        <p style={{ margin: 0, fontSize: 13, fontWeight: 600, color: "#f8fafc", lineHeight: 1.45 }}>
+        <p style={{ margin: 0, fontSize: 13, fontWeight: 600, color: "#f8fafc", lineHeight: 1.45, overflowWrap: "break-word" }}>
           {PROOFS[currentIdx]}
         </p>
         <span style={{ fontSize: 10.5, color: "#94a3b8", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 3, display: "inline-block" }}>

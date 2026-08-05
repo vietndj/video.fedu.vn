@@ -17,6 +17,7 @@ import { InstructorSection } from "./sections/InstructorSection";
 import { BonusSection } from "./sections/BonusSection";
 import { CtaSection } from "./sections/CtaSection";
 import LiveSocialProof from "./LiveSocialProof";
+import ZaloChatWidget from "./ZaloChatWidget";
 import "./landing.css";
 
 export default function App() {
@@ -80,10 +81,76 @@ export default function App() {
           <p className="cl-footer__tagline" style={{ whiteSpace: "pre-line", fontSize: "16px", lineHeight: 1.8, fontStyle: "italic", marginTop: 16 }}>
             {c.footerTagline}
           </p>
-          <div className="cl-footer__links">
-            {c.footerLinks.map((link) => (
-              <a key={link} href="#" className="cl-footer__link">{link}</a>
-            ))}
+          <div className="cl-footer__links" style={{ marginTop: 24, display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+            <a
+              href="https://www.facebook.com/nguyenducviet.video"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                padding: "8px 18px",
+                borderRadius: 30,
+                background: "rgba(255, 255, 255, 0.03)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                fontSize: 14,
+                fontWeight: 500,
+                color: "var(--cl-text-body, #b0b0b0)",
+                textDecoration: "none",
+                transition: "all 0.2s ease"
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.borderColor = "var(--cl-accent)";
+                e.currentTarget.style.color = "#fff";
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
+                e.currentTarget.style.color = "var(--cl-text-body, #b0b0b0)";
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.03)";
+              }}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+              <span>Facebook Fanpage</span>
+            </a>
+
+            <a
+              href="https://www.facebook.com/nddviet"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                padding: "8px 18px",
+                borderRadius: 30,
+                background: "rgba(255, 255, 255, 0.03)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                fontSize: 14,
+                fontWeight: 500,
+                color: "var(--cl-text-body, #b0b0b0)",
+                textDecoration: "none",
+                transition: "all 0.2s ease"
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.borderColor = "var(--cl-accent)";
+                e.currentTarget.style.color = "#fff";
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
+                e.currentTarget.style.color = "var(--cl-text-body, #b0b0b0)";
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.03)";
+              }}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+              <span>Facebook Cá Nhân</span>
+            </a>
           </div>
           <p className="cl-footer__copy">
             {c.footerCopyright}
@@ -92,6 +159,7 @@ export default function App() {
         </footer>
       )}
       <LiveSocialProof />
+      <ZaloChatWidget />
     </div>
   );
 }

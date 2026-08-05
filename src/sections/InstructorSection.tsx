@@ -17,8 +17,8 @@ export function InstructorSection() {
       <FadeIn delay={100}>
         <div style={{
           background: "linear-gradient(135deg, rgba(255,255,255,0.015) 0%, rgba(255,255,255,0.002) 100%)",
-          border: `1px solid var(--cl-line)`, borderRadius: t.cardRadius, padding: "48px 40px",
-          display: "flex", gap: 52, alignItems: "flex-start", flexWrap: "wrap", boxShadow: "0 20px 50px -15px rgba(0,0,0,0.4)",
+          border: `1px solid var(--cl-line)`, borderRadius: t.cardRadius, padding: "clamp(24px, 6vw, 48px) clamp(16px, 5vw, 40px)",
+          display: "flex", gap: "clamp(24px, 6vw, 52px)", alignItems: "flex-start", flexWrap: "wrap", boxShadow: "0 20px 50px -15px rgba(0,0,0,0.4)",
         }}>
           <div style={{ flexShrink: 0, textAlign: "center", minWidth: 200, maxWidth: 240, margin: "0 auto" }}>
             <div style={{
@@ -48,9 +48,9 @@ export function InstructorSection() {
             </div>
           </div>
 
-          <div style={{ flex: 1, minWidth: 260, display: "flex", flexDirection: "column", gap: 0 }}>
+          <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 0 }}>
             <p style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--cl-text-muted, #666)", fontFamily: "monospace", marginBottom: 24, lineHeight: 1.8 }}>
-              KỸ SƯ CÔNG NGHỆ PHẦN MỀM (ĐH BÁCH KHOA). 15 NĂM<br />GIẢNG VIÊN MỸ THUẬT ĐA PHƯƠNG TIỆN TẠI FPT ARENA.
+              KỸ SƯ CÔNG NGHỆ PHẦN MỀM (ĐH BÁCH KHOA). 15 NĂM GIẢNG VIÊN MỸ THUẬT ĐA PHƯƠNG TIỆN TẠI FPT ARENA.
             </p>
             
             <div style={{ height: 1, background: "var(--cl-line)", marginBottom: 24 }} />

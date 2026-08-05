@@ -29,7 +29,7 @@ export function BonusSection() {
                   background: "var(--cl-card)", border: `1px solid var(--cl-line)`,
                   borderRadius: t.cardRadius, padding: "28px",
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
                   gap: 24, alignItems: "center"
                 }}>
                   {/* Left Column: Icon + Text */}
@@ -80,7 +80,7 @@ export function BonusSection() {
             return (
               <div key={i} style={{
                 background: "var(--cl-card)", border: `1px solid var(--cl-line)`,
-                borderRadius: t.cardRadius, padding: "32px", display: "flex", alignItems: "flex-start", gap: 24,
+                borderRadius: t.cardRadius, padding: "clamp(16px, 4vw, 32px)", display: "flex", alignItems: "flex-start", gap: 24,
               }}>
                 <div style={{
                   width: 56, height: 56, borderRadius: 12,

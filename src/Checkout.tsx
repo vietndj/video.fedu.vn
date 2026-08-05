@@ -557,8 +557,29 @@ function CheckoutContent() {
   const BANK: BankInfo = { name: "TPBank", account: "88804101986", holder: "NGUYEN DUC VIET", amount: c.price, content: transferContent };
   const QR_URL = `https://img.vietqr.io/image/TPB-${BANK.account}-compact2.png?amount=${c.price.replace(/\./g, "")}&addInfo=${encodeURIComponent(transferContent)}&accountName=${encodeURIComponent(BANK.holder)}`;
 
+  // Bắn sự kiện InitiateCheckout khi truy cập trang thanh toán
+  useEffect(() => {
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq('track', 'InitiateCheckout', {
+        value: priceVal || 299000,
+        currency: 'VND',
+        content_name: 'Tư Duy Làm Video Điện Thoại: Quay Là Cuốn'
+      });
+    }
+  }, [priceVal]);
+
   const handleManualConfirm = async () => {
     setConfirmed(true);
+
+    // Bắn sự kiện Purchase Meta Pixel khi xác nhận thủ công
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq('track', 'Purchase', {
+        value: priceVal || 299000,
+        currency: 'VND',
+        content_name: 'Tư Duy Làm Video Điện Thoại: Quay Là Cuốn'
+      });
+    }
+
     try {
       const raw = localStorage.getItem("video_customer");
       const cust = raw ? JSON.parse(raw) as { name?: string; phone?: string; email?: string; url?: string } : {};
@@ -598,6 +619,15 @@ function CheckoutContent() {
           setShowModal(true);
           localStorage.removeItem("video_payment_since");
           
+          // Bắn sự kiện Purchase Meta Pixel khi tự động kiểm tra thấy thanh toán thành công
+          if (typeof window !== "undefined" && (window as any).fbq) {
+            (window as any).fbq('track', 'Purchase', {
+              value: priceVal || 299000,
+              currency: 'VND',
+              content_name: 'Tư Duy Làm Video Điện Thoại: Quay Là Cuốn'
+            });
+          }
+
           const raw = localStorage.getItem("video_customer");
           const customer = raw ? JSON.parse(raw) as { name?: string; phone?: string; email?: string; url?: string } : {};
           const rowIndex = parseInt(localStorage.getItem("video_row") ?? "0", 10) || undefined;
@@ -620,7 +650,7 @@ function CheckoutContent() {
     const id = setInterval(poll, 5000);
     poll();
     return () => { active = false; clearInterval(id); };
-  }, [paymentSuccess, phone]);
+  }, [paymentSuccess, phone, priceVal]);
 
   return (
     <div style={{ background: t.bg, color: t.textBase ?? "#fff", fontFamily: t.fontBody, minHeight: "100vh" }}>

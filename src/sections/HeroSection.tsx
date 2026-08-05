@@ -25,8 +25,9 @@ export function HeroSection() {
             border: "1px solid rgba(239, 68, 68, 0.4)",
             background: "rgba(239, 68, 68, 0.08)",
             borderRadius: 100, padding: "7px 18px", marginBottom: 14,
-            fontFamily: t.fontMono, fontSize: 13, letterSpacing: "0.08em",
-            color: "#f87171", fontWeight: 600, boxShadow: "0 0 20px rgba(239, 68, 68, 0.15)"
+            fontFamily: t.fontMono, fontSize: "clamp(10px, 2.8vw, 13px)", letterSpacing: "0.04em",
+            color: "#f87171", fontWeight: 600, boxShadow: "0 0 20px rgba(239, 68, 68, 0.15)",
+            maxWidth: "100%", boxSizing: "border-box" as const, textAlign: "center" as const
           }}>
             <span style={{
               width: 8, height: 8, borderRadius: "50%", background: "#ef4444",
@@ -62,7 +63,7 @@ export function HeroSection() {
               background: "rgba(255, 255, 255, 0.01)",
               border: `1px dashed ${t.accent}33`,
               borderRadius: 16,
-              padding: "22px 30px",
+              padding: "22px clamp(16px, 4vw, 30px)",
               position: "relative",
               backdropFilter: "blur(8px)",
               boxShadow: `0 8px 32px -8px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.05)`,
@@ -84,7 +85,7 @@ export function HeroSection() {
           {(c as any).heroVideoYoutubeId && (
             <div style={{
               maxWidth: 460, width: "100%", margin: "48px auto 72px",
-              background: "#08080a", border: "10px solid #141416", borderRadius: 48,
+              background: "#08080a", border: "clamp(4px, 2vw, 10px) solid #141416", borderRadius: "clamp(24px, 6vw, 48px)",
               padding: 0, boxShadow: `0 32px 80px -16px rgba(0,0,0,0.9), 0 0 40px -10px ${t.accent}22`,
               position: "relative", overflow: "hidden",
             }}>
@@ -116,7 +117,7 @@ export function HeroSection() {
 
       {/* 1B: Triết lý */}
       <section style={{ 
-        position: "relative", padding: "100px 24px", maxWidth: 800, margin: "0 auto", 
+        position: "relative", padding: "clamp(48px, 10vw, 100px) clamp(16px, 4vw, 24px)", maxWidth: 800, margin: "0 auto", 
         textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
       }}>
         <div aria-hidden style={{
@@ -140,13 +141,13 @@ export function HeroSection() {
           </p>
 
           <div style={{
-            display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 24,
+            display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", gap: 24,
             width: "100%", maxWidth: 820, margin: "48px auto 0", textAlign: "left",
           }}>
             {/* Pillar 1 */}
             <div style={{
               background: "var(--cl-card)", border: `1px solid var(--cl-line)`, borderLeft: `3px solid var(--cl-accent)`,
-              borderRadius: t.cardRadius, padding: "32px 28px", display: "flex", flexDirection: "column", gap: 12,
+              borderRadius: t.cardRadius, padding: "clamp(20px, 5vw, 32px) clamp(16px, 4vw, 28px)", display: "flex", flexDirection: "column", gap: 12,
               transition: "transform 0.2s ease, border-color 0.2s ease",
             }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -155,10 +156,10 @@ export function HeroSection() {
                   TRỤ CỘT 1: QUAY DỰNG CUỐN HÚT
                 </span>
               </div>
-              <h3 style={{ fontFamily: t.fontBody, fontSize: 24, fontWeight: 500, color: "#fff", margin: "4px 0 0", letterSpacing: "-0.015em" }}>
+              <h3 style={{ fontFamily: t.fontBody, fontSize: "clamp(19px, 5vw, 24px)", fontWeight: 500, color: "#fff", margin: "4px 0 0", letterSpacing: "-0.015em" }}>
                 Cắt Ghép Chỉn Chu
               </h3>
-              <p style={{ fontSize: 18, lineHeight: 1.75, color: "#e2e8f0", margin: 0 }}>
+              <p style={{ fontSize: "clamp(15px, 3.8vw, 18px)", lineHeight: 1.75, color: "#e2e8f0", margin: 0 }}>
                 {c.products?.[0]?.desc ?? ""}
               </p>
             </div>
@@ -166,7 +167,7 @@ export function HeroSection() {
             {/* Pillar 2 */}
             <div style={{
               background: "var(--cl-card)", border: `1px solid var(--cl-line)`, borderLeft: `3px solid var(--cl-accent)`,
-              borderRadius: t.cardRadius, padding: "32px 28px", display: "flex", flexDirection: "column", gap: 12,
+              borderRadius: t.cardRadius, padding: "clamp(20px, 5vw, 32px) clamp(16px, 4vw, 28px)", display: "flex", flexDirection: "column", gap: 12,
               transition: "transform 0.2s ease, border-color 0.2s ease",
             }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -175,10 +176,10 @@ export function HeroSection() {
                   TRỤ CỘT 2: NÂNG TẦM THẨM MỸ
                 </span>
               </div>
-              <h3 style={{ fontFamily: t.fontBody, fontSize: 24, fontWeight: 500, color: "#fff", margin: "4px 0 0", letterSpacing: "-0.015em" }}>
+              <h3 style={{ fontFamily: t.fontBody, fontSize: "clamp(19px, 5vw, 24px)", fontWeight: 500, color: "#fff", margin: "4px 0 0", letterSpacing: "-0.015em" }}>
                 Dựng Cảnh Có Gu
               </h3>
-              <p style={{ fontSize: 18, lineHeight: 1.75, color: "#e2e8f0", margin: 0 }}>
+              <p style={{ fontSize: "clamp(15px, 3.8vw, 18px)", lineHeight: 1.75, color: "#e2e8f0", margin: 0 }}>
                 {c.products?.[1]?.desc ?? ""}
               </p>
             </div>

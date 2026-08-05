@@ -854,3 +854,37 @@
   .cl-skill-card__body { padding: 26px 22px 20px; }
 }
 
+@media (max-width: 480px) {
+  .cl-sec { padding: 48px 16px 0; }
+  .cl-divider { margin: 60px 0 0; }
+  .cl-sh { font-size: clamp(22px, 6vw, 36px); margin-bottom: 28px; }
+  .cl-check__text { font-size: 16px; }
+  .cl-btn { padding: 16px 18px; font-size: 15px; letter-spacing: 0.02em; }
+  .cl-hero { padding: 48px 16px 0; }
+  .cl-hero__h1 { font-size: clamp(28px, 9vw, 54px); }
+  .cl-hero__accent { font-size: clamp(14px, 3.5vw, 18px); }
+  .cl-hero__sub { font-size: 15px; margin-bottom: 28px; }
+  .cl-hero__sub-price { font-size: 14px; }
+  .cl-product-card { padding: 20px 16px; }
+  .cl-product-card__title { font-size: 18px; }
+  .cl-product-card__desc { font-size: 15px; }
+  .cl-skill-card__body { padding: 20px 16px 16px; }
+  .cl-skill-card__title { font-size: 18px; }
+  .cl-skill-card__desc { font-size: 15px; }
+  .cl-timeline-card { padding: 20px 16px 18px; }
+  .cl-stage-card { padding: 24px 16px 20px; }
+  .cl-stage__ghost-num { font-size: 64px; }
+  .cl-stage__title { font-size: clamp(18px, 5vw, 24px); }
+  .cl-stage__desc { font-size: 15px; }
+  .cl-ba-col { padding: 20px 16px; }
+  .cl-ba-item__text { font-size: 15px; }
+  .cl-bonus-item { padding: 18px 16px; gap: 14px; }
+  .cl-bonus-item__title { font-size: 17px; }
+  .cl-bonus-item__desc { font-size: 15px; }
+  .cl-bonus-item__icon-wrap { width: 40px; height: 40px; border-radius: 10px; }
+  .cl-value-stack { padding: 20px 16px; }
+  .cl-footer { padding: 48px 16px 28px; margin-top: 64px; }
+  .cl-footer__brand { font-size: 24px; }
+  .cl-label { font-size: 12px; letter-spacing: 0.12em; }
+  .cl-cta-sub { font-size: 16px; }
+}

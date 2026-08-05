@@ -36,9 +36,9 @@ export function PainSection() {
 
       <FadeIn delay={160}>
         <blockquote style={{
-          borderLeft: `3px solid var(--cl-accent)`, paddingLeft: 24, margin: "0 auto", maxWidth: 680,
+          borderLeft: `3px solid var(--cl-accent)`, paddingLeft: "clamp(14px, 3.5vw, 24px)", margin: "0 auto", maxWidth: 680,
           fontFamily: t.blockquoteFontFamily ?? t.fontAccent, fontStyle: t.blockquoteFontStyle ?? "italic",
-          fontWeight: t.blockquoteFontWeight ?? 400, fontSize: "clamp(18px, 2.3vw, 21px)", color: "#fff", 
+          fontWeight: t.blockquoteFontWeight ?? 400, fontSize: "clamp(16px, 3.8vw, 21px)", color: "#fff", 
           lineHeight: 1.7, textAlign: "left",
         }}>
           “{(c as any).painQuote || c.painBlockquote}”

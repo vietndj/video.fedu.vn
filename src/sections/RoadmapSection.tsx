@@ -18,10 +18,10 @@ export function RoadmapSection() {
 
       <FadeIn delay={80}>
         <div style={{ textAlign: "center", marginBottom: 28 }}>
-          <p style={{ fontSize: 22, fontWeight: 500, color: "var(--cl-text-base, #f0f0f0)", marginBottom: 14 }}>
+          <p style={{ fontSize: "clamp(18px, 4.5vw, 22px)", fontWeight: 500, color: "var(--cl-text-base, #f0f0f0)", marginBottom: 14 }}>
             {c.roadmapPreviewHeading ?? "Trải nghiệm trực quan không gian bên trong ấn phẩm"}
           </p>
-          <p style={{ fontSize: 18, color: "var(--cl-text-muted, #888)", maxWidth: 600, margin: "0 auto 32px", lineHeight: 1.75 }}>
+          <p style={{ fontSize: "clamp(14px, 3.5vw, 17px)", color: "var(--cl-text-muted, #888)", maxWidth: 600, margin: "0 auto 32px", lineHeight: 1.75 }}>
             {c.roadmapPreviewDesc}
           </p>
         </div>
@@ -70,7 +70,7 @@ export function RoadmapSection() {
                 <h3 className="cl-timeline-card__title">{m.title}</h3>
                 <p className="cl-timeline-card__desc">{m.desc}</p>
                 {m.gif && (
-                  <div style={{ borderTop: `1px solid var(--cl-line)`, marginTop: 18, marginLeft: -32, marginRight: -32 }}>
+                  <div style={{ borderTop: `1px solid var(--cl-line)`, marginTop: 18, marginLeft: "clamp(-16px, -4vw, -32px)", marginRight: "clamp(-16px, -4vw, -32px)" }}>
                     <img src={m.gif} loading="lazy" alt={m.title} style={{ width: "100%", display: "block" }} />
                   </div>
                 )}

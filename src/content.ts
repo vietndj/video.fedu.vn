@@ -129,7 +129,7 @@ const CONTENT_SCHEMA_VERSION = 7;
 
 export const DEFAULT_CONTENT: PageContent = {
   _v: CONTENT_SCHEMA_VERSION,
-  price: "599.000",
+  price: "299.000",
   value: "3.250.000",
 
   // ── Hero ──
@@ -346,7 +346,7 @@ export const DEFAULT_CONTENT: PageContent = {
   ],
 
   // ── Section 11: Final CTA ──
-  urgencyBar: "⚠ ĐẶC QUYỀN ĐĂNG KÝ HÔM NAY — CHỈ CÒN 599.000 VNĐ",
+  urgencyBar: "⚠ ĐẶC QUYỀN ĐĂNG KÝ HÔM NAY — CHỈ CÒN 299.000 VNĐ",
   ctaLabel: "// BƯỚC CUỐI CÙNG",
   ctaHeading: "Làm chủ tư duy quay dựng mượt mà ngay hôm nay.",
   ctaSub: "Trang bị gu thẩm mỹ đắt tiền cho những thước phim của bạn — chỉ với mức phí bằng đúng một bữa ăn tối. Từ video tiếp theo, bạn sẽ không còn nhìn lại màn hình và thấy 'sượng' nữa.",

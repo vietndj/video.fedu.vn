@@ -28,11 +28,11 @@ export function SkillsSection() {
                 borderRadius: t.cardRadius,
               }}>
                 <div className="cl-skill-content">
-                  <h4 style={{ fontFamily: t.fontDisplay, fontSize: "clamp(22px, 3vw, 28px)", lineHeight: 1.15, letterSpacing: "-0.018em", fontWeight: 500, color: "#fff", margin: "0 0 16px 0", display: "flex", alignItems: "flex-start", gap: 12 }}>
+                  <h4 style={{ fontFamily: t.fontDisplay, fontSize: "clamp(18px, 3vw, 26px)", lineHeight: 1.15, letterSpacing: "-0.018em", fontWeight: 500, color: "#fff", margin: "0 0 16px 0", display: "flex", alignItems: "flex-start", gap: 12 }}>
                     <span style={{ fontFamily: t.fontMono, fontSize: "clamp(20px, 2.5vw, 24px)", color: t.accent, marginTop: 4 }}>{card.n}</span>
                     <span style={{ textWrap: "balance" }}>{card.title}</span>
                   </h4>
-                  <p style={{ fontSize: 18, lineHeight: 1.75, color: "#cbd5e1", margin: 0 }}>{card.desc}</p>
+                  <p style={{ fontSize: "clamp(15px, 3.8vw, 18px)", lineHeight: 1.75, color: "#cbd5e1", margin: 0 }}>{card.desc}</p>
                 </div>
                 
                 <div className="cl-skill-media" style={{ aspectRatio: card.aspectRatio || "3 / 4" }}>
