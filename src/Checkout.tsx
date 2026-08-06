@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { useTheme } from "./theme";
 import { useContent } from "./content";
 import LiveSocialProof from "./LiveSocialProof";
+import ZaloChatWidget from "./ZaloChatWidget";
 import { IconCheck } from "./components/ui";
 
 function useIsMobile(breakpoint = 680) {
@@ -927,6 +928,7 @@ function CheckoutContent() {
         </div>
       </div>
       <LiveSocialProof />
+      <ZaloChatWidget />
     </div>
   );
 }

@@ -17,7 +17,6 @@ import { InstructorSection } from "./sections/InstructorSection";
 import { BonusSection } from "./sections/BonusSection";
 import { CtaSection } from "./sections/CtaSection";
 import LiveSocialProof from "./LiveSocialProof";
-import ZaloChatWidget from "./ZaloChatWidget";
 import "./landing.css";
 
 export default function App() {
@@ -159,7 +158,6 @@ export default function App() {
         </footer>
       )}
       <LiveSocialProof />
-      <ZaloChatWidget />
     </div>
   );
 }
