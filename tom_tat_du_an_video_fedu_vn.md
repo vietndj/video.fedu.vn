@@ -8,7 +8,7 @@
   * 15 năm kinh nghiệm Giảng viên Mỹ thuật Đa phương tiện tại FPT Arena.
 * **Mô hình kinh doanh:** Bán sản phẩm số (Digital Course) học Online xem lại trọn đời.
 * **Giá bán:** 
-  * Giá ưu đãi: **299.000 VNĐ**
+  * Giá ưu đãi: **599.000 VNĐ**
   * Giá niêm yết / Tổng giá trị: **3.250.000 VNĐ** (Khóa học 2.000.000đ + Bộ quà tặng 1.250.000đ).
 
 ---
@@ -56,10 +56,10 @@
    * **Lưu trữ:** API gửi thông tin qua Google Apps Script Webhook để ghi nhận thông tin vào **Google Sheets** với trạng thái `"chưa thanh toán"`.
 
 2. **Bước 2: Thanh toán Tự động (Auto-Payment Matching)**
-   * Trang hiển thị Mã QR VietQR (Ngân hàng MBBank) chứa số tiền 299.000đ và cú pháp chứa SĐT của khách.
+   * Trang hiển thị Mã QR VietQR (Ngân hàng MBBank) chứa số tiền 599.000đ và cú pháp chứa SĐT của khách.
    * Client mở kết nối polling liên tục tới API `/api/payment/check.ts`.
    * Backend gọi **SePay API** (`https://my.sepay.vn/userapi/transactions/list`) để kiểm tra danh sách biến động số dư tài khoản ngân hàng thực tế.
-   * Khi phát hiện giao dịch khớp: `Số tiền = 299.000đ` + `Nội dung chuyển khoản chứa SĐT của khách` + `Thời gian giao dịch hợp lệ`.
+   * Khi phát hiện giao dịch khớp: `Số tiền = 599.000đ` + `Nội dung chuyển khoản chứa SĐT của khách` + `Thời gian giao dịch hợp lệ`.
 
 3. **Bước 3: Xác nhận & Cấp quyền tự động (Fulfillment & CRM Automation)**
    * Khi khớp thanh toán thành công, Frontend gọi tiếp API `/api/payment/confirm.ts`.

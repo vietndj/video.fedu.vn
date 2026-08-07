@@ -562,7 +562,7 @@ function CheckoutContent() {
   useEffect(() => {
     if (typeof window !== "undefined" && (window as any).fbq) {
       (window as any).fbq('track', 'InitiateCheckout', {
-        value: priceVal || 299000,
+        value: priceVal || 599000,
         currency: 'VND',
         content_name: 'Tư Duy Làm Video Điện Thoại: Quay Là Cuốn'
       });
@@ -575,7 +575,7 @@ function CheckoutContent() {
     // Bắn sự kiện Purchase Meta Pixel khi xác nhận thủ công
     if (typeof window !== "undefined" && (window as any).fbq) {
       (window as any).fbq('track', 'Purchase', {
-        value: priceVal || 299000,
+        value: priceVal || 599000,
         currency: 'VND',
         content_name: 'Tư Duy Làm Video Điện Thoại: Quay Là Cuốn'
       });
@@ -623,7 +623,7 @@ function CheckoutContent() {
           // Bắn sự kiện Purchase Meta Pixel khi tự động kiểm tra thấy thanh toán thành công
           if (typeof window !== "undefined" && (window as any).fbq) {
             (window as any).fbq('track', 'Purchase', {
-              value: priceVal || 299000,
+              value: priceVal || 599000,
               currency: 'VND',
               content_name: 'Tư Duy Làm Video Điện Thoại: Quay Là Cuốn'
             });
