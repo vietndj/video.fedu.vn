@@ -329,8 +329,8 @@ export const DEFAULT_CONTENT: PageContent = {
     },
     {
       id: "03",
-      title: "Bộ Mẫu Text Animation Chuyển Động Độc Bản (CapCut PC)",
-      desc: "Đừng để tiêu đề video của bạn trông đơn điệu và phẳng lì. Bộ mẫu chữ chuyển động (Text Animation) dựng sẵn chuẩn Agency dành riêng cho CapCut PC giúp bạn giật title thu hút ánh nhìn ngay 3 giây đầu tiên.<br/><br/>Bộ mẫu thiết kế riêng cho các ngách hot nhất:<br/><ul style=\"margin: 12px 0; padding-left: 20px; color: #cbd5e1; line-height: 1.8;\"><li>🏢 <b>Bất Động Sản & Review Space:</b> Sang trọng, hiện đại, tôn vinh giá trị dự án.</li><li>🍲 <b>Ẩm Thực & Food Vlog:</b> Tươi mới, bắt mắt, kích thích thị giác người xem.</li><li>💻 <b>Công Nghệ & Gadgets:</b> Hiện đại, futuristic, tạo cảm giác chuyên nghiệp.</li><li>⚡ <b>Cực dễ sử dụng:</b> Chỉ cần nhập chữ của bạn vào là xong, tương thích 100% CapCut PC!</li></ul>",
+      title: "Bộ Template Chữ Chuyển Động Cao Cấp Cho CapCut PC",
+      desc: "Giải pháp kéo - thả giúp tiêu đề video của bạn nổi bật tức thì mà không cần kiến thức kỹ xảo hay đặt keyframe phức tạp.<br/><br/>Trọn bộ Template đắt giá bao gồm:<br/><ul style=\"margin: 12px 0; padding-left: 20px; color: #cbd5e1; line-height: 1.8;\"><li>🎬 <b>3 Ngách ngành tiêu biểu:</b> Bất động sản sang trọng, Công nghệ hiện đại, Ẩm thực bắt mắt.</li><li>🚀 <b>Kéo - Thả dùng ngay:</b> Thiết kế sẵn 100% trên CapCut PC, tương thích mọi tỉ lệ khung hình.</li><li>💡 <b>Tạo ấn tượng 3s đầu:</b> Giữ chân người xem lâu hơn, tăng tỷ lệ xem hết video đáng kể.</li><li>🔄 <b>Cập nhật liên tục & MIỄN PHÍ:</b> Thường xuyên bổ sung các style chữ mới theo xu hướng thị trường mà không tốn thêm bất kỳ chi phí nào!</li></ul>",
       gifDemos: [
         { url: "/gifs/text-anim-bds.gif", label: "Bất Động Sản" },
         { url: "/gifs/text-anim-food.gif", label: "Ẩm Thực / Food" },
