@@ -329,8 +329,13 @@ export const DEFAULT_CONTENT: PageContent = {
     },
     {
       id: "03",
-      title: "Sơ đồ Đánh Sáng 3 Điểm (Cho Phòng Nhỏ)",
-      desc: "Cheat-sheet đặt góc đèn cho 5 kiểu phòng nhà ống điển hình. Tạo chiều sâu 3D ngay lập tức chỉ với 2 chiếc đèn giá rẻ."
+      title: "Bộ Mẫu Text Animation Chuyển Động Độc Bản (CapCut PC)",
+      desc: "Đừng để tiêu đề video của bạn trông đơn điệu và phẳng lì. Bộ mẫu chữ chuyển động (Text Animation) dựng sẵn chuẩn Agency dành riêng cho CapCut PC giúp bạn giật title thu hút ánh nhìn ngay 3 giây đầu tiên.<br/><br/>Bộ mẫu thiết kế riêng cho các ngách hot nhất:<br/><ul style=\"margin: 12px 0; padding-left: 20px; color: #cbd5e1; line-height: 1.8;\"><li>🏢 <b>Bất Động Sản & Review Space:</b> Sang trọng, hiện đại, tôn vinh giá trị dự án.</li><li>🍲 <b>Ẩm Thực & Food Vlog:</b> Tươi mới, bắt mắt, kích thích thị giác người xem.</li><li>💻 <b>Công Nghệ & Gadgets:</b> Hiện đại, futuristic, tạo cảm giác chuyên nghiệp.</li><li>⚡ <b>Cực dễ sử dụng:</b> Chỉ cần nhập chữ của bạn vào là xong, tương thích 100% CapCut PC!</li></ul>",
+      gifDemos: [
+        { url: "/gifs/text-anim-bds.gif", label: "Bất Động Sản" },
+        { url: "/gifs/text-anim-food.gif", label: "Ẩm Thực / Food" },
+        { url: "/gifs/text-anim-tech.gif", label: "Công Nghệ" }
+      ]
     },
     {
       id: "04",

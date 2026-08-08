@@ -22,6 +22,85 @@ export function BonusSection() {
           {((c as any).bonusItems || c.bonuses || []).map((item: any, i: number) => {
             const Icon = BONUS_ICONS[i % BONUS_ICONS.length];
             const hasSideGif = !!item.gifDemo;
+            const hasMultiGifs = Array.isArray(item.gifDemos) && item.gifDemos.length > 0;
+
+            if (hasMultiGifs) {
+              return (
+                <div key={i} style={{
+                  background: "var(--cl-card)", border: `1px solid var(--cl-line)`,
+                  borderRadius: t.cardRadius, padding: "clamp(20px, 4vw, 32px)",
+                  display: "flex", flexDirection: "column", gap: 20
+                }}>
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: 20 }}>
+                    <div style={{
+                      width: 52, height: 52, borderRadius: 12,
+                      background: `linear-gradient(135deg, ${t.accent}22, transparent)`,
+                      border: `1px solid ${t.accent}44`,
+                      display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                    }}>
+                      <Icon accent={t.accent} />
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: 12, color: "var(--cl-accent)", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 6 }}>
+                        BONUS {i + 1}
+                      </div>
+                      <h4 style={{ fontFamily: t.fontBody, fontSize: 20, fontWeight: 500, color: "#fff", margin: "0 0 8px 0" }}>
+                        {item.title}
+                      </h4>
+                      <div style={{ fontSize: 15, lineHeight: 1.6, color: "#cbd5e1", margin: 0 }} dangerouslySetInnerHTML={{ __html: item.desc }} />
+                    </div>
+                  </div>
+
+                  <div style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))",
+                    gap: 16,
+                    marginTop: 8
+                  }}>
+                    {item.gifDemos.map((gif: any, idx: number) => {
+                      const src = typeof gif === "string" ? gif : gif.url;
+                      const label = typeof gif === "object" ? gif.label : "";
+                      return (
+                        <div key={idx} style={{
+                          background: "#000",
+                          border: "1px solid rgba(255, 255, 255, 0.12)",
+                          borderRadius: 12,
+                          overflow: "hidden",
+                          boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
+                          display: "flex",
+                          flexDirection: "column"
+                        }}>
+                          <img
+                            src={src}
+                            alt={label || item.title}
+                            style={{
+                              width: "100%",
+                              height: 160,
+                              objectFit: "cover",
+                              display: "block"
+                            }}
+                          />
+                          {label && (
+                            <div style={{
+                              padding: "8px 12px",
+                              background: "rgba(15, 23, 42, 0.9)",
+                              borderTop: "1px solid rgba(255,255,255,0.08)",
+                              fontSize: 13,
+                              color: "var(--cl-accent)",
+                              textAlign: "center",
+                              fontWeight: 500,
+                              fontFamily: "var(--cl-font-mono)"
+                            }}>
+                              {label}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            }
 
             if (hasSideGif) {
               return (
