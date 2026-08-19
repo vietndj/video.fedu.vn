@@ -218,19 +218,19 @@ export const DEFAULT_CONTENT: PageContent = {
     {
       title: "Chuyển động Cơ học > Hiệu ứng App",
       desc: "Vứt bỏ các hiệu ứng lật trang 3D sến súa. Mượn đà của một cú lướt máy hay động tác tay, bạn sẽ ghép 10 clip lại với nhau mà mượt mà như chỉ quay đúng 1 lần.",
-      gif: "/gifs/mechanical-cut.gif",
+      gif: "https://pub-447bd44dfdac4938912655c855b8631c.r2.dev/landing/mechanical-cut.gif",
       placeholderLabel: "GIF Minh họa: Lướt tay che ống kính chuyển cảnh"
     },
     {
       title: "Điều phối Không gian > Đứng im một chỗ",
       desc: "Phá bỏ góc máy chết. Luân chuyển điệu nghệ giữa Cảnh Toàn và Cảnh Cận. Bạn đang tự tay dẫn dắt cảm xúc người xem mà không cần tốn một lời giải thích.",
-      gif: "/gifs/spatial-direction.gif",
+      gif: "https://pub-447bd44dfdac4938912655c855b8631c.r2.dev/landing/spatial-direction.gif",
       placeholderLabel: "GIF Minh họa: Video luân chuyển Toàn - Trung - Cận"
     },
     {
       title: "Tôn khối Nghệ thuật > Ánh sáng Phẳng lì",
       desc: "Sự \"đắt tiền\" bắt nguồn từ cách bạn đánh sáng, không phải độ phân giải của camera. Tôn lên đường nét khuôn mặt chỉ với nguyên lý bóc tách 3D cơ bản.",
-      gif: "/gifs/lighting-art.gif",
+      gif: "https://pub-447bd44dfdac4938912655c855b8631c.r2.dev/landing/lighting-art.gif",
       placeholderLabel: "GIF Minh họa: Bật tắt đèn nền background tạo chiều sâu"
     }
   ],
@@ -249,9 +249,9 @@ export const DEFAULT_CONTENT: PageContent = {
   skillsLabel: "4 NGUYÊN LÝ KIẾN TRÚC KHUNG HÌNH",
   skillsHeading: "Bốn kỹ thuật hình ảnh được hệ thống hóa để bạn áp dụng ngay trên điện thoại:",
   skillCards: [
-    { n: "01", title: "Điểm nối tàng hình (Cut-on-Action)", desc: "Mượn các chuyển động vật lý tự nhiên (vung tay, lướt đồ vật, bước chân) làm cầu nối giữa hai bối cảnh. Khán giả sẽ bị cuốn theo nhịp điệu và không hề nhận ra sự xuất hiện của vết cắt.", gif: "/gifs/invisible-cut.gif" },
-    { n: "02", title: "Ánh sáng tôn khối 3D", desc: "Chỉ cần 2 chiếc đèn cơ bản đặt đúng góc (Key và Back light), khuôn mặt và bối cảnh sẽ lập tức có chiều sâu. Giải quyết triệt để tình trạng video bị phẳng lì và thiếu sinh khí.", gif: "/gifs/lighting-3d.gif" },
-    { n: "03", title: "Điều hướng qua Cỡ cảnh", desc: "Luân chuyển có chủ đích giữa Cảnh Toàn, Trung và Cận để dẫn dắt sự chú ý của người xem. Đây là cách đơn giản nhất để video không bị nhàm chán dù bối cảnh không thay đổi.", gif: "/gifs/shot-sizes.gif" },
+    { n: "01", title: "Điểm nối tàng hình (Cut-on-Action)", desc: "Mượn các chuyển động vật lý tự nhiên (vung tay, lướt đồ vật, bước chân) làm cầu nối giữa hai bối cảnh. Khán giả sẽ bị cuốn theo nhịp điệu và không hề nhận ra sự xuất hiện của vết cắt.", gif: "https://pub-447bd44dfdac4938912655c855b8631c.r2.dev/landing/invisible-cut.gif" },
+    { n: "02", title: "Ánh sáng tôn khối 3D", desc: "Chỉ cần 2 chiếc đèn cơ bản đặt đúng góc (Key và Back light), khuôn mặt và bối cảnh sẽ lập tức có chiều sâu. Giải quyết triệt để tình trạng video bị phẳng lì và thiếu sinh khí.", gif: "https://pub-447bd44dfdac4938912655c855b8631c.r2.dev/landing/lighting-3d.gif" },
+    { n: "03", title: "Điều hướng qua Cỡ cảnh", desc: "Luân chuyển có chủ đích giữa Cảnh Toàn, Trung và Cận để dẫn dắt sự chú ý của người xem. Đây là cách đơn giản nhất để video không bị nhàm chán dù bối cảnh không thay đổi.", gif: "https://pub-447bd44dfdac4938912655c855b8631c.r2.dev/landing/shot-sizes.gif" },
     { n: "04", title: "Bằng chứng thị giác (B-roll)", desc: "Không chỉ dùng để che vết cắt, cảnh trám (B-roll) đóng vai trò là minh họa trực quan. Khi lời nói đi đôi với hình ảnh thực tế, tính thuyết phục của video sẽ tăng lên mức tối đa.", youtubeId: "Ew-yWd0riEQ", aspectRatio: "9 / 16" }
   ],
 
@@ -332,9 +332,9 @@ export const DEFAULT_CONTENT: PageContent = {
       title: "Bộ Template Chữ Chuyển Động Cao Cấp Cho CapCut PC",
       desc: "Giải pháp kéo - thả giúp tiêu đề video của bạn nổi bật tức thì mà không cần kiến thức kỹ xảo hay đặt keyframe phức tạp.<br/><br/>Trọn bộ Template đắt giá bao gồm:<br/><ul style=\"margin: 12px 0; padding-left: 20px; color: #cbd5e1; line-height: 1.8;\"><li>🎬 <b>3 Ngách ngành tiêu biểu:</b> Bất động sản sang trọng, Công nghệ hiện đại, Ẩm thực bắt mắt.</li><li>🚀 <b>Kéo - Thả dùng ngay:</b> Thiết kế sẵn 100% trên CapCut PC, tương thích mọi tỉ lệ khung hình.</li><li>💡 <b>Tạo ấn tượng 3s đầu:</b> Giữ chân người xem lâu hơn, tăng tỷ lệ xem hết video đáng kể.</li><li>🔄 <b>Cập nhật liên tục & MIỄN PHÍ:</b> Thường xuyên bổ sung các style chữ mới theo xu hướng thị trường mà không tốn thêm bất kỳ chi phí nào!</li></ul><span style=\"font-size: 13px; color: #94a3b8; display: block; margin-top: 8px;\">(Sản phẩm gốc có thể tham khảo đầy đủ tại <a href=\"https://clashivfx.com/en-rs/products/pack-titles-capcut\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: var(--cl-accent, #38bdf8); text-decoration: underline;\">clashivfx.com</a>)</span>",
       gifDemos: [
-        { url: "/gifs/text-anim-bds.gif", label: "Bất Động Sản" },
-        { url: "/gifs/text-anim-food.gif", label: "Ẩm Thực / Food" },
-        { url: "/gifs/text-anim-tech.gif", label: "Công Nghệ" }
+        { url: "https://pub-447bd44dfdac4938912655c855b8631c.r2.dev/landing/text-anim-bds.gif", label: "Bất Động Sản" },
+        { url: "https://pub-447bd44dfdac4938912655c855b8631c.r2.dev/landing/text-anim-food.gif", label: "Ẩm Thực / Food" },
+        { url: "https://pub-447bd44dfdac4938912655c855b8631c.r2.dev/landing/text-anim-tech.gif", label: "Công Nghệ" }
       ]
     },
     {
@@ -346,7 +346,7 @@ export const DEFAULT_CONTENT: PageContent = {
       id: "05",
       title: "Cập Nhật Miễn Phí Kỹ Thuật Edit Video Bằng AI",
       desc: "Liên tục cập nhật miễn phí các kỹ thuật và quy trình AI mới nhất — giúp bạn tự động hóa cắt ghép, tạo phụ đề và rút ngắn 80% thời gian dựng cho một số loại video phổ biến.",
-      gifDemo: "/edit-ai-promo.gif"
+      gifDemo: "https://pub-447bd44dfdac4938912655c855b8631c.r2.dev/landing/edit-ai-promo.gif"
     }
   ],
 
