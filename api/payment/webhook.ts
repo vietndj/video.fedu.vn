@@ -68,12 +68,16 @@ async function sendPrivateDM(commentId: string, text: string, token: string) {
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // ─── 1. META WEBHOOK GET HANDSHAKE ──────────────────────────────────────────
   if (req.method === 'GET') {
-    const mode = req.query['hub.mode'];
-    const token = req.query['hub.verify_token'];
-    const challenge = req.query['hub.challenge'];
+    const rawUrl = req.url || '';
+    const searchParams = new URL(rawUrl, 'https://video.fedu.vn').searchParams;
+    const hubNested = (req.query?.hub as any) || {};
+
+    const mode = req.query['hub.mode'] || hubNested.mode || searchParams.get('hub.mode');
+    const token = req.query['hub.verify_token'] || hubNested.verify_token || searchParams.get('hub.verify_token');
+    const challenge = req.query['hub.challenge'] || hubNested.challenge || searchParams.get('hub.challenge');
 
     if (mode === 'subscribe' && token === FB_VERIFY_TOKEN) {
-      console.log('[Meta Webhook Verified Successfully]');
+      console.log('[Meta Webhook Verified Successfully]:', challenge);
       return res.status(200).send(challenge);
     }
     return res.status(200).json({ status: 'active', message: 'Webhook endpoint ready (SePay & Meta)' });
