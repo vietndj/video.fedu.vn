@@ -1,8 +1,8 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 const VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN || 'vietmac_ai_meta_secret_2026';
-const PAGE_ACCESS_TOKEN = process.env.FB_PAGE_ACCESS_TOKEN || '';
-const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8964853536:AAHuRNm_hY-YQtveBD1HlmthN4I5xpVzM8U';
+const PAGE_ACCESS_TOKEN = process.env.FB_PAGE_ACCESS_TOKEN || 'EAAegdQqWEkwBSQxUkVrG1rHI2DmOaH2JPlUi6WMfQmjZBaVEmheVnXXC4etBFtxiA0od4qS3YAs8Dph2MxlXBAGx5bgAqOmZBgjJVKxv6559xhx0aw6B6ld6NmzE8wlFJZCUzAisoKFg2QwwSVY3eDK11vK07jmSRggQyXuoVHkU71YT0EY04ydQWQpYZBUUOEWZCeWYofP5naLsf2bcZD';
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8715535213:AAHx7g6bQfMECdP0lBewAh6d4RV6FnKvNog';
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || '2050406425';
 
 async function sendTelegramAlert(text: string) {
@@ -81,7 +81,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (body.object === 'page') {
       for (const entry of body.entry || []) {
-        // Handle Comments (Feed changes)
+        // A. Handle Comments (Feed changes)
         for (const change of entry.changes || []) {
           if (change.field === 'feed' && change.value) {
             const val = change.value;
@@ -91,6 +91,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             if (item === 'comment' && verb === 'add') {
               const commentId = val.comment_id;
               const senderName = val.from?.name || 'Khách hàng';
+              const senderId = val.from?.id;
               const messageText = (val.message || '').trim();
               const postId = val.post_id;
 
@@ -98,11 +99,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
               // Analyze intent
               const lower = messageText.toLowerCase();
-              const isBuying = lower.includes('giá') || lower.includes('bao nhiêu') || lower.includes('học phí') || lower.includes('mua') || lower.includes('đăng ký') || lower.includes('lớp') || lower.includes('offline') || lower.includes('skool') || lower.includes('tư vấn');
-              const isGift = lower.includes('xin') || lower.includes('file') || lower.includes('preset') || lower.includes('sfx') || lower.includes('gốc') || lower.includes('prompt') || lower.includes('mic') || lower.includes('gocmay') || lower.includes('1') || lower.includes('quan tam');
+              const isBuying = lower.includes('giá') || lower.includes('bao nhiêu') || lower.includes('học phí') || lower.includes('mua') || lower.includes('đăng ký') || lower.includes('lớp') || lower.includes('offline') || lower.includes('skool') || lower.includes('tư vấn') || lower.includes('khóa');
+              const isGift = lower.includes('xin') || lower.includes('file') || lower.includes('preset') || lower.includes('sfx') || lower.includes('gốc') || lower.includes('prompt') || lower.includes('mic') || lower.includes('gocmay') || lower.includes('1') || lower.includes('quan tam') || lower.includes('capcut');
 
               if (PAGE_ACCESS_TOKEN) {
-                // Like comment
+                // Auto-like
                 await likeComment(commentId, PAGE_ACCESS_TOKEN);
 
                 if (isBuying) {
@@ -110,7 +111,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                   await replyCommentPublic(commentId, `Chào bạn ${senderName}, mình đã gửi thông tin chi tiết qua tin nhắn riêng cho bạn rồi nhé!`, PAGE_ACCESS_TOKEN);
                   
                   // Private DM
-                  const dmText = `Chào bạn ${senderName}, mình là trợ lý của anh Việt.\n\nKhóa học "Tư Duy Quay & Edit Video Điện Thoại" đang có ưu đãi 599.000đ (học online xem lại trọn đời trên Skool + 5 bộ quà tặng).\n\n👉 Bạn xem chi tiết lộ trình và quà tặng tại đây nhé: https://video.fedu.vn\n\nBạn cần hỗ trợ gì thêm cứ nhắn ở đây, anh Việt và đội ngũ sẽ hỗ trợ bạn ngay nhé!`;
+                  const dmText = `Chào bạn ${senderName}, mình là trợ lý của anh Việt.\n\nKhóa học "Tư Duy Quay & Edit Video Bằng Điện Thoại" đang có ưu đãi 599.000đ (học online xem lại trọn đời trên Skool + 5 bộ quà tặng).\n\n👉 Bạn xem chi tiết lộ trình và quà tặng tại đây nhé: https://video.fedu.vn\n\nBạn cần hỗ trợ gì thêm cứ nhắn ở đây, anh Việt và đội ngũ sẽ hỗ trợ bạn ngay nhé!`;
                   await sendPrivateDM(commentId, dmText, PAGE_ACCESS_TOKEN);
 
                   // Telegram alert for sales / VietMac
@@ -120,7 +121,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                     `💬 <b>Comment:</b> "${messageText}"\n` +
                     `📍 <b>Post ID:</b> ${postId}\n` +
                     `🤖 <i>Bot đã like, reply và gửi DM link video.fedu.vn</i>\n\n` +
-                    `👉 <b>Sales hãy vào Messenger chăm sóc khách ngay!</b>`
+                    `👉 <b>Anh Việt & Đội Sales hãy vào Messenger chăm sóc khách ngay!</b>`
                   );
                 } else if (isGift) {
                   await replyCommentPublic(commentId, `Chào ${senderName}, mình đã gửi tài liệu qua tin nhắn cho bạn rồi nhé!`, PAGE_ACCESS_TOKEN);
@@ -136,14 +137,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 } else {
                   await replyCommentPublic(commentId, `Cảm ơn ${senderName} đã theo dõi chia sẻ của anh Việt nhé! Chúc bạn ngày mới nhiều năng lượng.`, PAGE_ACCESS_TOKEN);
                 }
-              } else {
-                // If PAGE_ACCESS_TOKEN not yet configured, send alert to Telegram
-                await sendTelegramAlert(
-                  `📩 <b>Comment Mới Trên Page</b>\n\n` +
-                  `👤 <b>Khách:</b> ${senderName}\n` +
-                  `💬 <b>Nội dung:</b> "${messageText}"\n` +
-                  `⚠️ <i>Chưa cấu hình PAGE_ACCESS_TOKEN để auto-reply.</i>`
-                );
               }
             }
           }
