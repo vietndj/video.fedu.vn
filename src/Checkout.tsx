@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { useTheme } from "./theme";
 import { useContent } from "./content";
 import LiveSocialProof from "./LiveSocialProof";
@@ -556,7 +556,9 @@ function CheckoutContent() {
   const transferContent = `${prefix} ${phone}`;
 
   const BANK: BankInfo = { name: "TPBank", account: "88804101986", holder: "NGUYEN DUC VIET", amount: c.price, content: transferContent };
-  const QR_URL = `https://img.vietqr.io/image/TPB-${BANK.account}-compact2.png?amount=${c.price.replace(/\./g, "")}&addInfo=${encodeURIComponent(transferContent)}&accountName=${encodeURIComponent(BANK.holder)}`;
+  const QR_URL = `https://img.vietqr.io/image/TPB-${BANK.account}-qr_only.png?amount=${c.price.replace(/\./g, "")}&addInfo=${encodeURIComponent(transferContent)}&accountName=${encodeURIComponent(BANK.holder)}`;
+
+  const isConfirmingRef = useRef(false);
 
   // Bắn sự kiện InitiateCheckout khi truy cập trang thanh toán
   useEffect(() => {
@@ -570,6 +572,8 @@ function CheckoutContent() {
   }, [priceVal]);
 
   const handleManualConfirm = async () => {
+    if (confirmed || paymentSuccess || isConfirmingRef.current) return;
+    isConfirmingRef.current = true;
     setConfirmed(true);
 
     // Bắn sự kiện Purchase Meta Pixel khi xác nhận thủ công
@@ -610,12 +614,13 @@ function CheckoutContent() {
     let active = true;
 
     const poll = async () => {
-      if (!active || paymentSuccess) return;
+      if (!active || paymentSuccess || isConfirmingRef.current) return;
       try {
         const res = await fetch(`/api/payment/check?since=${since}&phone=${phone}`);
         if (!res.ok) return;
         const data = await res.json() as { found: boolean; transaction?: { id: string } };
-        if (data.found && active && !paymentSuccess) {
+        if (data.found && active && !paymentSuccess && !isConfirmingRef.current) {
+          isConfirmingRef.current = true;
           setPaymentSuccess(true);
           setShowModal(true);
           localStorage.removeItem("video_payment_since");
