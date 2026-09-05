@@ -117,9 +117,9 @@ export function generateActivationEmailHtml({
                 <a href="${skoolUrl}" target="_blank" class="cta-btn" style="display: inline-block; background-color: #1a73e8; color: #ffffff !important; text-decoration: none !important; font-size: 15px; font-weight: 700; padding: 15px 36px; border-radius: 10px; letter-spacing: 0.03em; box-shadow: 0 4px 16px rgba(26, 115, 232, 0.35);">
                   <span style="color: #ffffff !important; text-decoration: none !important;">THAM GIA LỚP HỌC TRÊN SKOOL →</span>
                 </a>
-                <div style="margin: 14px 0 0 0; font-size: 13px; line-height: 1.6; color: #475569; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px;">
-                  ⚠️ <strong>LƯU Ý QUAN TRỌNG:</strong> Khi Skool hiện câu hỏi xác nhận, bạn bắt buộc phải điền đúng email: <a href="mailto:${email}" style="color: #1a73e8 !important; text-decoration: underline !important; font-weight: 700;"><span style="color: #1a73e8 !important; text-decoration: underline !important;">${email}</span></a> để hệ thống đối chiếu biên lai và mở cửa lớp ngay cho bạn nhé!
-                </div>
+                <p style="margin: 12px 0 0 0; font-size: 13px; color: #64748b;">
+                  Đăng nhập bằng email: <a href="mailto:${email}" style="color: #1a73e8 !important; text-decoration: underline !important; font-weight: 600;"><span style="color: #1a73e8 !important; text-decoration: underline !important;">${email}</span></a>
+                </p>
               </div>
             </td>
           </tr>
