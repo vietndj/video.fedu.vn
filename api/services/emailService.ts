@@ -107,18 +107,30 @@ export function generateActivationEmailHtml({
             </td>
           </tr>
 
-          <!-- CTA Button Chính: Vào lớp học Skool -->
+          <!-- CTA Button Chính: Hướng dẫn vào lớp Skool mở 2 khóa học -->
           <tr>
             <td style="padding: 0 28px 28px 28px;">
               <div style="background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid #e2e8f0; border-radius: 14px; padding: 24px 20px; text-align: center;">
-                <p style="margin: 0 0 16px 0; font-size: 15px; font-weight: 600; color: #0f172a;">
-                  Bấm vào nút bên dưới để vào thẳng lớp học trên Skool:
+                <div style="font-family: 'SVN-Sonoma', 'Sonoma', monospace; font-size: 12px; font-weight: 700; color: #16a34a; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px;">
+                  ✓ ĐÃ KÍCH HOẠT LỜI MỜI MỞ 2 KHÓA HỌC
+                </div>
+                <p style="margin: 0 0 10px 0; font-size: 15px; font-weight: 600; color: #0f172a; line-height: 1.6;">
+                  Hệ thống Skool đã gửi 1 email thư mời riêng vào hòm thư của bạn:<br>
+                  <span style="color: #1a73e8;">Nguyen Viet invited you to join Logic Design & Edit</span>
                 </p>
-                <a href="${skoolUrl}" target="_blank" class="cta-btn" style="display: inline-block; background-color: #1a73e8; color: #ffffff !important; text-decoration: none !important; font-size: 15px; font-weight: 700; padding: 15px 36px; border-radius: 10px; letter-spacing: 0.03em; box-shadow: 0 4px 16px rgba(26, 115, 232, 0.35);">
-                  <span style="color: #ffffff !important; text-decoration: none !important;">THAM GIA LỚP HỌC TRÊN SKOOL →</span>
+                <p style="margin: 0 0 18px 0; font-size: 14px; color: #475569; line-height: 1.6;">
+                  Bạn chỉ cần mở email đó từ Skool và bấm vào nút vàng <strong>JOIN NOW</strong> là 2 khóa học thực chiến sẽ được tự động mở khóa ngay lập tức (không cần gửi yêu cầu xét duyệt vào nhóm)!
+                </p>
+                <a href="https://mail.google.com" target="_blank" class="cta-btn" style="display: inline-block; background-color: #1a73e8; color: #ffffff !important; text-decoration: none !important; font-size: 15px; font-weight: 700; padding: 15px 36px; border-radius: 10px; letter-spacing: 0.03em; box-shadow: 0 4px 16px rgba(26, 115, 232, 0.35);">
+                  <span style="color: #ffffff !important; text-decoration: none !important;">MỞ HỘP THƯ EMAIL ĐỂ VÀO LỚP (BẤM JOIN NOW) →</span>
                 </a>
-                <p style="margin: 12px 0 0 0; font-size: 13px; color: #64748b;">
-                  Đăng nhập bằng email: <a href="mailto:${email}" style="color: #1a73e8 !important; text-decoration: underline !important; font-weight: 600;"><span style="color: #1a73e8 !important; text-decoration: underline !important;">${email}</span></a>
+                <p style="margin: 14px 0 0 0; font-size: 13px; color: #64748b;">
+                  Email nhận lời mời: <a href="mailto:${email}" style="color: #1a73e8 !important; text-decoration: underline !important; font-weight: 600;"><span style="color: #1a73e8 !important; text-decoration: underline !important;">${email}</span></a>
+                </p>
+                <p style="margin: 8px 0 0 0; font-size: 12.5px;">
+                  <a href="https://www.skool.com/nguyenducviet-8640/classroom" target="_blank" style="color: #64748b !important; text-decoration: underline !important;">
+                    Hoặc bấm vào đây nếu bạn đã kích hoạt tài khoản Skool trước đó →
+                  </a>
                 </p>
               </div>
             </td>
