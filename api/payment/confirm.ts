@@ -116,6 +116,24 @@ export default async function handler(
       } catch (mailErr) {
         console.error("Resend email error:", mailErr);
       }
+
+      // ── 4. Kích hoạt tự động mời Skool 100% qua Realtime Queue (Zero-Click) ──
+      try {
+        console.log(`Pushing auto-invite event to realtime queue for ${customerEmail}...`);
+        await fetch("https://ntfy.sh/fedu_skool_auto_invite_vietmac_tpbank888041", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Title": "Skool Auto Invite" },
+          body: JSON.stringify({
+            email: customerEmail,
+            name: customerName,
+            source: "video.fedu.vn",
+            transactionId: transactionId || "MANUAL",
+            timestamp: Date.now()
+          })
+        });
+      } catch (qErr) {
+        console.error("Failed to push auto-invite event:", qErr);
+      }
     }
 
     return res.status(200).json({ success: true });
