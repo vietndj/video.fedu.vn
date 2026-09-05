@@ -193,27 +193,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     }
 
-    if (false) { // Disabled Make webhook
-      try {
-        const makePayload = {
-          transactionId: transactionId,
-          amount: amount,
-          content: content,
-          phone: phone,
-          name: updateData.name || "Học viên",
-          email: updateData.email || "",
-          status: "Đã thanh toán",
-          timestamp: new Date().toISOString()
-        };
-        await fetch(MAKE_WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(makePayload)
-        });
-      } catch (err) {
-        console.error('[SePay Webhook] Failed to trigger Make.com webhook:', err);
-      }
-    }
+
 
     return res.status(200).json({
       success: true,
