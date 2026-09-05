@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 const COURSE_AMOUNT = 599000;
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3s4V-cItvUcM3g-oZy0mAWsxGXr9UhLhz_qPgXWZgFNTT9KgKZxu391m-aRv8rz8U/exec";
-const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/mdc9dfwges9r1v06momkpboh9auhrtgu";
+// MAKE_WEBHOOK_URL removed to prevent duplicate emails
 
 // Meta Facebook Config
 const FB_VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN || 'vietmac_ai_meta_secret_2026';
@@ -193,7 +193,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     }
 
-    if (MAKE_WEBHOOK_URL) {
+    if (false) { // Disabled Make webhook
       try {
         const makePayload = {
           transactionId: transactionId,
