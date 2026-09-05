@@ -107,40 +107,28 @@ export function generateActivationEmailHtml({
             </td>
           </tr>
 
-          <!-- CTA Button Chính: Hướng dẫn vào lớp Skool mở 2 khóa học -->
+          <!-- CTA Button Chính: Vào lớp học Skool (Chuẩn luồng mẫu) -->
           <tr>
             <td style="padding: 0 28px 28px 28px;">
               <div style="background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid #e2e8f0; border-radius: 14px; padding: 24px 20px; text-align: center;">
-                <div style="font-family: 'SVN-Sonoma', 'Sonoma', monospace; font-size: 12px; font-weight: 700; color: #16a34a; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px;">
-                  ✓ ĐÃ KÍCH HOẠT LỜI MỜI MỞ 2 KHÓA HỌC
-                </div>
-                <p style="margin: 0 0 10px 0; font-size: 15px; font-weight: 600; color: #0f172a; line-height: 1.6;">
-                  Hệ thống Skool đã gửi 1 email thư mời riêng vào hòm thư của bạn:<br>
-                  <span style="color: #1a73e8;">Nguyen Viet invited you to join Logic Design & Edit</span>
+                <p style="margin: 0 0 16px 0; font-size: 15px; font-weight: 600; color: #0f172a;">
+                  Bấm vào nút bên dưới để vào thẳng lớp học trên Skool:
                 </p>
-                <p style="margin: 0 0 18px 0; font-size: 14px; color: #475569; line-height: 1.6;">
-                  Bạn chỉ cần mở email đó từ Skool và bấm vào nút vàng <strong>JOIN NOW</strong> là 2 khóa học thực chiến sẽ được tự động mở khóa ngay lập tức (không cần gửi yêu cầu xét duyệt vào nhóm)!
-                </p>
-                <a href="https://mail.google.com" target="_blank" class="cta-btn" style="display: inline-block; background-color: #1a73e8; color: #ffffff !important; text-decoration: none !important; font-size: 15px; font-weight: 700; padding: 15px 36px; border-radius: 10px; letter-spacing: 0.03em; box-shadow: 0 4px 16px rgba(26, 115, 232, 0.35);">
-                  <span style="color: #ffffff !important; text-decoration: none !important;">MỞ HỘP THƯ EMAIL ĐỂ VÀO LỚP (BẤM JOIN NOW) →</span>
+                <a href="${skoolUrl}" target="_blank" class="cta-btn" style="display: inline-block; background-color: #1a73e8; color: #ffffff !important; text-decoration: none !important; font-size: 15px; font-weight: 700; padding: 15px 36px; border-radius: 10px; letter-spacing: 0.03em; box-shadow: 0 4px 16px rgba(26, 115, 232, 0.35);">
+                  <span style="color: #ffffff !important; text-decoration: none !important;">THAM GIA LỚP HỌC TRÊN SKOOL →</span>
                 </a>
-                <p style="margin: 14px 0 0 0; font-size: 13px; color: #64748b;">
-                  Email nhận lời mời: <a href="mailto:${email}" style="color: #1a73e8 !important; text-decoration: underline !important; font-weight: 600;"><span style="color: #1a73e8 !important; text-decoration: underline !important;">${email}</span></a>
-                </p>
-                <p style="margin: 8px 0 0 0; font-size: 12.5px;">
-                  <a href="https://www.skool.com/nguyenducviet-8640/classroom" target="_blank" style="color: #64748b !important; text-decoration: underline !important;">
-                    Hoặc bấm vào đây nếu bạn đã kích hoạt tài khoản Skool trước đó →
-                  </a>
+                <p style="margin: 12px 0 0 0; font-size: 13px; color: #64748b;">
+                  Đăng nhập bằng email: <strong style="color: #0f172a;">${email}</strong>
                 </p>
               </div>
             </td>
           </tr>
 
-          <!-- LỘ TRÌNH 4 BƯỚC / 2 KHÓA TRÊN SKOOL (ĐỂ KHÔNG BỊ NGỢP) -->
+          <!-- LỘ TRÌNH 4 BƯỚC BẮT ĐẦU THỰC CHIẾN -->
           <tr>
             <td style="padding: 0 28px 30px 28px;">
               <div style="font-family: 'SVN-Sonoma', 'Sonoma', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #64748b; margin-bottom: 16px;">
-                <span style="opacity: 0.4;">// </span>LỘ TRÌNH HỌC TẬP (ĐỂ KHÔNG BỊ NGỢP)
+                <span style="opacity: 0.4;">// </span>LỘ TRÌNH 4 BƯỚC BẮT ĐẦU THỰC CHIẾN
               </div>
 
               <!-- Container 4 Blocks -->
@@ -154,8 +142,8 @@ export function generateActivationEmailHtml({
                         <div style="width: 28px; height: 28px; border-radius: 8px; background-color: #eff6ff; color: #1a73e8; text-align: center; line-height: 28px; font-weight: 700; font-size: 13px; border: 1px solid #bfdbfe;">01</div>
                       </td>
                       <td style="padding-left: 8px;">
-                        <div style="font-size: 14.5px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Khóa 1: Nền tảng CapCut (Cày đủ giờ bay)</div>
-                        <div style="font-size: 14px; line-height: 1.6; color: #475569;">Nếu bạn chưa thạo app, cứ vào đây thực hành trước để làm chủ thao tác tay, quen giao diện cắt ghép và tự tin xử lý footage cơ bản.</div>
+                        <div style="font-size: 14.5px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Bài giảng cô đọng 5–7 phút</div>
+                        <div style="font-size: 14px; line-height: 1.6; color: #475569;">Xem nhanh, nắm chắc bản chất, không lan man lý thuyết.</div>
                       </td>
                     </tr>
                   </table>
@@ -169,8 +157,8 @@ export function generateActivationEmailHtml({
                         <div style="width: 28px; height: 28px; border-radius: 8px; background-color: #eff6ff; color: #1a73e8; text-align: center; line-height: 28px; font-weight: 700; font-size: 13px; border: 1px solid #bfdbfe;">02</div>
                       </td>
                       <td style="padding-left: 8px;">
-                        <div style="font-size: 14.5px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Khóa 2: Cốt lõi thực chiến (Kỹ nghệ giấu vết cắt)</div>
-                        <div style="font-size: 14px; line-height: 1.6; color: #475569;">Nơi chứa trọn bộ tinh hoa: các kỹ thuật chuyển cảnh vật lý mượt mà đến vô lý, khuôn mẫu kịch bản giữ chân người xem và công cụ AI hỗ trợ.</div>
+                        <div style="font-size: 14.5px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Tài nguyên có sẵn dưới bài</div>
+                        <div style="font-size: 14px; line-height: 1.6; color: #475569;">Tải nhạc nền sạch bản quyền, preset phụ đề 2 dòng, câu lệnh AI dùng được ngay. Nhóm lớp cập nhật thêm hàng tuần.</div>
                       </td>
                     </tr>
                   </table>
@@ -184,8 +172,8 @@ export function generateActivationEmailHtml({
                         <div style="width: 28px; height: 28px; border-radius: 8px; background-color: #f0fdf4; color: #16a34a; text-align: center; line-height: 28px; font-weight: 700; font-size: 13px; border: 1px solid #bbf7d0;">03</div>
                       </td>
                       <td style="padding-left: 8px;">
-                        <div style="font-size: 14.5px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Khóa học "sống" — Cập nhật kỹ thuật mới liên tục</div>
-                        <div style="font-size: 14px; line-height: 1.6; color: #475569;">Mỗi lần có kỹ thuật quay mới hay giải pháp tối ưu, mình sẽ lên bài thông báo ngay ngoài Community và bổ sung video thẳng vào Khóa 2.</div>
+                        <div style="font-size: 14.5px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Quay thực tế bằng điện thoại</div>
+                        <div style="font-size: 14px; line-height: 1.6; color: #475569;">Bám sát công việc thực tế hàng ngày, làm đến đâu ra video đến đó mà không cần chờ hoàn hảo.</div>
                       </td>
                     </tr>
                   </table>
@@ -199,9 +187,9 @@ export function generateActivationEmailHtml({
                         <div style="width: 28px; height: 28px; border-radius: 8px; background-color: #f0fdf4; color: #16a34a; text-align: center; line-height: 28px; font-weight: 700; font-size: 13px; border: 1px solid #bbf7d0;">04</div>
                       </td>
                       <td style="padding-left: 8px;">
-                        <div style="font-size: 14.5px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Sửa góc máy & video 1:1 cùng anh Việt</div>
+                        <div style="font-size: 14.5px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Gửi để mình sửa trực tiếp 1:1</div>
                         <div style="font-size: 14px; line-height: 1.6; color: #475569;">
-                          Đang quay mà vướng mắc góc máy hay ánh sáng chỗ nào, cứ nhắn thẳng <a href="${supportZalo}" target="_blank" style="color: #1a73e8 !important; font-weight: 600; text-decoration: underline !important;">Zalo (${instructorPhone})</a> hoặc <a href="https://facebook.com/nddviet" target="_blank" style="color: #1a73e8 !important; font-weight: 600; text-decoration: underline !important;">Facebook</a>. Mình trực tiếp xem và chỉ rõ từng nhịp chùng để video cuốn nhất!
+                          Bạn gửi bài qua <a href="${supportZalo}" target="_blank" style="color: #1a73e8 !important; font-weight: 600; text-decoration: underline !important;">Zalo (${instructorPhone})</a> hoặc <a href="${skoolUrl}" target="_blank" style="color: #1a73e8 !important; font-weight: 600; text-decoration: underline !important;">nhóm Skool</a>. Mình sẽ xem và chỉ rõ từng chỗ thừa, từng nhịp chùng để video giữ chân người xem tốt nhất.
                         </div>
                       </td>
                     </tr>
