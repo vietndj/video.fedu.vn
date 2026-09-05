@@ -1,4 +1,33 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { sendCourseActivationEmail } from '../services/emailService';
+
+const DEFAULT_TELEGRAM_BOT_TOKEN = "8796389265:AAH-QkaZNIrOKiMLJexprI5EboUJplL7a3c";
+const DEFAULT_TELEGRAM_CHAT_ID = "2050406425";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3s4V-cItvUcM3g-oZy0mAWsxGXr9UhLhz_qPgXWZgFNTT9KgKZxu391m-aRv8rz8U/exec";
+
+async function sendTelegramAlert(text: string, replyMarkup?: any) {
+  const botToken = process.env.TELEGRAM_BOT_TOKEN || DEFAULT_TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID || DEFAULT_TELEGRAM_CHAT_ID;
+  if (!botToken || !chatId) return;
+
+  try {
+    const payload: any = {
+      chat_id: chatId,
+      text,
+      parse_mode: "HTML",
+    };
+    if (replyMarkup) {
+      payload.reply_markup = replyMarkup;
+    }
+    await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+  } catch (err) {
+    console.error("Failed to send Telegram alert:", err);
+  }
+}
 
 export default async function handler(
   req: VercelRequest,
@@ -10,17 +39,18 @@ export default async function handler(
 
   try {
     const { name = "", phone = "", email = "", url = "", transactionId = "", rowIndex } = req.body || {};
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3s4V-cItvUcM3g-oZy0mAWsxGXr9UhLhz_qPgXWZgFNTT9KgKZxu391m-aRv8rz8U/exec";
-    const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/mdc9dfwges9r1v06momkpboh9auhrtgu";
 
+    const cleanPhone = (phone || "").replace(/[\s\.\-\+]/g, "").trim();
+    let normalizedPhone = cleanPhone;
+    if (normalizedPhone.startsWith("84")) normalizedPhone = "0" + normalizedPhone.slice(2);
+
+    // ── 1. Cập nhật trạng thái trong Google Sheet qua Google Apps Script ──
     let updateData: any = {};
-    if (!GOOGLE_SCRIPT_URL) {
-      console.warn("GOOGLE_SCRIPT_URL is not set. Skipping sheet status update.");
-    } else {
+    if (GOOGLE_SCRIPT_URL) {
       try {
         const payload = {
           action: "update_status",
-          phone: phone,
+          phone: normalizedPhone || phone,
           status: "Đã thanh toán"
         };
 
@@ -42,30 +72,49 @@ export default async function handler(
       }
     }
 
-    // Use updated email/name from sheet or frontend fallback
-    const customerEmail = updateData.email || email;
-    const customerName = updateData.name || name;
+    const customerEmail = (updateData.email || email || "").trim();
+    const customerName = (updateData.name || name || "").trim();
 
-    // Trigger Make.com webhook if email exists
+    // ── 2. Bắn thông báo Telegram (Cùng bot, phân biệt rõ nguồn VIDEO.FEDU.VN) ──
+    const teleMsg = `💰 <b>[THANH TOÁN THÀNH CÔNG]</b>
+━━━━━━━━━━━━━━━━━━━━
+🌐 <b>NGUỒN WEB:</b> <b>VIDEO.FEDU.VN</b>
+👤 <b>Học viên:</b> ${customerName || "Khách hàng"}
+📱 <b>SĐT:</b> ${normalizedPhone}
+📧 <b>Email:</b> ${customerEmail || "Chưa cung cấp"}
+💵 <b>Học phí:</b> 599.000 VNĐ
+🔖 <b>Mã GD:</b> ${transactionId || "Chuyển khoản SePay/VietQR"}
+📚 <b>Khóa học:</b> Tư Duy Làm Video Điện Thoại: Quay Là Cuốn
+━━━━━━━━━━━━━━━━━━━━
+⚡ <b>Lệnh Skool:</b> Tự động mời qua hệ thống Mac...`;
+
+    const replyMarkup = customerEmail ? {
+      inline_keyboard: [
+        [
+          { text: "⚡ Duyệt Skool (Tự động)", callback_data: `invite:${customerEmail}` },
+          { text: "📋 Copy Email", copy_text: { text: customerEmail } }
+        ],
+        [
+          { text: "🌐 Mở trang Invite Skool", url: "https://www.skool.com/nguyenducviet-8640" }
+        ]
+      ]
+    } : undefined;
+
+    await sendTelegramAlert(teleMsg, replyMarkup);
+
+    // ── 3. Gửi Email kích hoạt trực tiếp qua Resend API (Chuẩn DS Figma Slide 2.0) ──
     if (customerEmail) {
-      console.log(`Triggering Make.com webhook for Skool automation for ${customerEmail}...`);
       try {
-        const makeRes = await fetch(MAKE_WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: customerName,
-            email: customerEmail,
-            phone: phone,
-            course: "Video Masterclass",
-            transactionId
-          })
+        console.log(`Sending activation email via Resend to ${customerEmail}...`);
+        await sendCourseActivationEmail({
+          name: customerName,
+          email: customerEmail,
+          phone: normalizedPhone,
+          transactionId: transactionId || "Chuyển khoản SePay/VietQR",
+          price: "599.000đ",
         });
-        if (!makeRes.ok) {
-           console.error(`Make webhook failed with status: ${makeRes.status}`);
-        }
-      } catch (makeErr) {
-         console.error("Failed to call Make webhook:", makeErr);
+      } catch (mailErr) {
+        console.error("Resend email error:", mailErr);
       }
     }
 
